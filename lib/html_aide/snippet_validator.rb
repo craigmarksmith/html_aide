@@ -1,12 +1,23 @@
 module HtmlAide
   class SnippetValidator
+    attr_accessor :ox
+    attr_reader :markup
 
-    def initialize
+    def initialize(markup = '')
+      self.markup = markup
+    end
 
+    def markup=(markup)
+      @ox = Ox.parse(markup)
+      @markup = markup
+    end
+
+    def element
+      @element ||= Element.new(@ox)
     end
 
     def valid?
-      false
+      true
     end
   end
 end
