@@ -35,7 +35,8 @@ tag.name #= 'div'
 tag.text #=> 'Taco Meat'
 tag.children #=> [<#HtmlAide::Element>]
 tag.children.first.name #=> 'strong'
-tag.to_s #=> '<div id="taco">Taco Meat</div>'
+tag.children.first.to_s #=> '<strong>Taco</strong>'
+tag.to_s #=> '<div id="taco"><strong>Taco</strong> Meat</div>'
 ```
 
 ```ruby
