@@ -21,17 +21,32 @@ Or install it yourself as:
 
 ## Usage
 
-proposed useage
+proposed usage
 
 ```ruby
-snippet = '<div id="taco">Taco Meat</div>'
+snippet = '<div id="taco"><strong>Taco</strong> Meat</div>'
 validator = HtmlAide::Validator.new(snippet)
 validator.valid? #=> true
 validator.class #=> HtmlAide::SnippetValidator
-validator.attributes #=> {:id => "taco"}
-validator.tag #= 'div'
-validator.text #=> 'Taco Meat'
-validator.children #=> []
+validator.errors #=> []
+tag = validator.element #=> HtmlAide::Element
+tag.attributes #=> {:id => "taco"}
+tag.name #= 'div'
+tag.text #=> 'Taco Meat'
+tag.children #=> [<#HtmlAide::Element>]
+tag.children.first.name #=> 'strong'
+tag.to_s #=> '<div id="taco">Taco Meat</div>'
+```
+
+```ruby
+snippet = '<div>Messed up </div'
+validator = HtmlAide::Validator.new(snippet)
+validator.valid? #=> false
+validator.class #=> HtmlAide::SnippetValidator
+validator.errors #=> [<#HtmlAide::InvalidElementError>]
+error = validator.errors.first #=> HtmlAide::InvalidElementError
+error.message #=> 'Syntax Error in element'
+validator.element #=> HtmlAide::NullObject
 ```
 
 ## Contributing
