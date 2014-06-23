@@ -1,5 +1,5 @@
 require "html_aide/version"
+require "html_aide/snippet_validator"
 
 module HtmlAide
-  # Your code goes here...
 end
