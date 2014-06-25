@@ -29,9 +29,9 @@ module HtmlAide
         @element = Element.new(node)
         @valid = true
       rescue Ox::ParseError => e
-        @valid = false
         @element = NullElement.new
         @errors << InvalidElementError.new(e)
+        @valid = false
       end
     end
   end

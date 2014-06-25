@@ -32,11 +32,10 @@ describe HtmlAide::Element do
   end
 
   describe '#to_s' do
-    # it 'returns the original markup' do
-    #   # TODO: this test fails because ox adds spaces to the string
-    #   #expect(subject.to_s).to eq @markup
-    # end
-    pending 'figure out how to not add spaces in ox'
+    it 'returns the original markup' do
+      pending "Ox messes with the markup"
+      expect(subject.to_s).to eq @markup
+    end
   end
 
   describe '#children' do

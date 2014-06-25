@@ -24,8 +24,8 @@ module HtmlAide
     end
 
     def children
-      nodes = proxy.nodes.reject {|n| String === n}
-      nodes.collect do |node|
+      @children ||= proxy.nodes.reject {|n|
+        String === n}.collect do |node|
         Element.new(node)
       end
     end
