@@ -45,7 +45,7 @@ validator.class #=> HtmlAide::SnippetValidator
 validator.errors #=> [<#HtmlAide::InvalidElementError>]
 error = validator.errors.first #=> HtmlAide::InvalidElementError
 error.message #=> 'Syntax Error in element'
-validator.element #=> HtmlAide::NullObject
+validator.element #=> HtmlAide::NullElement
 ```
 
 possible helpers
