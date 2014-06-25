@@ -2,7 +2,7 @@ module HtmlAide
   class InvalidElementError
 
     def initialize(error)
-      @message = error
+      @message = error.to_s
     end
 
     def message
