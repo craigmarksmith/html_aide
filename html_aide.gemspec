@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jeremywoertink@gmail.com"]
   spec.summary       = %q{Validate HTML snippets and markup.}
   spec.description   = %q{Validate HTML snippets and markup.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/devpointlabs/html_aide"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
