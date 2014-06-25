@@ -4,7 +4,7 @@ describe HtmlAide::Validator do
 
   describe '#initialize' do
     it 'returns a SnippetValidator' do
-      v = HtmlAide::Validator.new('')
+      v = HtmlAide::Validator.validate('')
       expect(v).to be_kind_of HtmlAide::SnippetValidator
     end
   end
