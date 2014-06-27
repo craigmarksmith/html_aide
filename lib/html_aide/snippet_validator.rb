@@ -25,10 +25,10 @@ module HtmlAide
 
     def create_node_and_set_element
       begin
-        node = Ox.parse(@markup)
+        node = MarkupParser.parse(@markup)
         @element = Element.new(node)
         @valid = true
-      rescue Ox::ParseError => e
+      rescue MarkupParser::ParseError => e
         @element = NullElement.new
         @errors << InvalidElementError.new(e)
         @valid = false
