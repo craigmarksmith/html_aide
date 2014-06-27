@@ -21,6 +21,8 @@ Or install it yourself as:
 
 ## Usage
 
+_With valid markup_
+
 ```ruby
 snippet = '<div id="taco"><strong>Taco</strong> Meat</div>'
 validator = HtmlAide::Validator.validate(snippet)
@@ -37,6 +39,8 @@ tag.children.first.to_s #=> '<strong>Taco</strong>'
 tag.to_s #=> '<div id="taco"><strong>Taco</strong> Meat</div>'
 ```
 
+_With invalid markup_
+
 ```ruby
 snippet = '<div>Messed up </div'
 validator = HtmlAide::Validator.validate(snippet)
@@ -44,11 +48,20 @@ validator.valid? #=> false
 validator.class #=> HtmlAide::SnippetValidator
 validator.errors #=> [<#HtmlAide::InvalidElementError>]
 error = validator.errors.first #=> HtmlAide::InvalidElementError
-error.message #=> 'Syntax Error in element'
+error.message #=> 'invalid format, document not terminated at line 1, column 21'
 validator.element #=> HtmlAide::NullElement
 ```
 
-possible helpers
+_Also validates invalid HTML 5 tags_
+
+```ruby
+snippet = '<taco>Chicken Soft</taco>'
+validator = HtmlAide::Validator.validate(snippet)
+validator.valid? #=> false
+validator.errors.first.message #=> 'taco is not a valid HTML tag'
+```
+
+## Future implementations
 
 ```ruby
 snippet = '<div id="taco"><strong>Taco</strong> Meat</div>'
