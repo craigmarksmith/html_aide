@@ -61,12 +61,29 @@ validator.valid? #=> false
 validator.errors.first.message #=> 'taco is not a valid HTML tag'
 ```
 
-## Future implementations
+_Extend your object with HtmlAide_
 
 ```ruby
-snippet = '<div id="taco"><strong>Taco</strong> Meat</div>'
-snippet.html? #=> true
-validator = snippet.validate_html!
+class MySpecialObject
+  using HtmlAide
+  attr_accessor :markup
+
+  def initialize(some_markup)
+    @markup = some_markup
+  end
+
+  def is_html?
+    @markup.html?
+  end
+
+  def to_element
+    @markup.to_html
+  end
+end
+
+obj = MySpecialObject.new('<div>Taco Meat</div>')
+obj.is_html? #=> true
+obj.to_element #=> <#HtmlAide::Element>
 ```
 
 ## Contributing

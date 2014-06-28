@@ -1,5 +1,6 @@
 require 'ox'
 require 'nokogiri'
+require 'html_aide/string'
 require 'html_aide/tag'
 require 'html_aide/markup_parser'
 require 'html_aide/validator'
