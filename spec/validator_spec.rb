@@ -25,6 +25,12 @@ describe HtmlAide::Validator do
         validator = HtmlAide::Validator.validate('<input />')
         expect(validator).to be_valid
       end
+
+      it 'returns true for a full page markup' do
+        full_page = '<!DOCTYPE html><html><head><title>Test</title></head></html>'
+        validator = HtmlAide::Validator.validate(full_page, :page)
+        expect(validator).to be_valid
+      end
     end
 
     context 'when the markup is not valid' do
