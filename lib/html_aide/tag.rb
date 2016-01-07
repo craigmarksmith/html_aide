@@ -1,4 +1,3 @@
-require 'pry'
 module HtmlAide
   class Tag
     VALID_TAGS = %w(
